@@ -14,16 +14,15 @@ public class SurveyManager : MonoBehaviour
     [SerializeField] GameObject _quizPanel;
     private Animation _animation;
 
+    private SurveyOption _selectedOption;
+    private ResorurceDisplay resourceDisplay;
     private int currentQuestionIndex = 0;
-    private int health = 50;
-    private int money = 50;
-    private int environment = 50;
-    private int cleanliness = 50;
-    private int hunger = 50;
+
 
     private void Awake()
     {
         _animation = _quizPanel.GetComponent<Animation>();
+        resourceDisplay = GetComponent<ResorurceDisplay>();
     }
     void Start()
     {
@@ -56,32 +55,38 @@ public class SurveyManager : MonoBehaviour
             {
                 if (isSelected)
                 {
-                    OnOptionSelected(option);
+                    _selectedOption = option;
                 }
             });
             i++;
         }
     }
 
-    void OnOptionSelected(SurveyOption option)
-    {
-        // 기본 점수에서 선택된 선택지(option)에 담긴 수치만큼 값 조정
-        health += option.healthChange;
-        money += option.moneyChange;
-        environment += option.environmentChange;
-        cleanliness += option.cleanlinessChange;
-        hunger += option.hungerChange;
-
-        // 최대, 최소 점수 100점으로 환산
-        health = Mathf.Clamp(health, 0, 100);
-        money = Mathf.Clamp(money, 0, 100);
-        environment = Mathf.Clamp(environment, 0, 100);
-        cleanliness = Mathf.Clamp(cleanliness, 0, 100);
-        hunger = Mathf.Clamp(hunger, 0, 100);
+    void UpdateResources(SurveyOption option)
+    { // 싱글톤인 Resource Manager에 접근
+        ResourceManager.Instance.UpdateHealth(option.healthChange);
+        ResourceManager.Instance.UpdateMoney(option.moneyChange);
+        ResourceManager.Instance.UpdateEnvironment(option.environmentChange);
+        ResourceManager.Instance.UpdateCleanliness(option.cleanlinessChange);
+        ResourceManager.Instance.UpdateHunger(option.hungerChange);
+        Debug.Log($"Updated Resources - Health: {ResourceManager.Instance.Health}, Money: {ResourceManager.Instance.Money}, Environment: {ResourceManager.Instance.Environment}, Cleanliness: {ResourceManager.Instance.Cleanliness}, Hunger: {ResourceManager.Instance.Hunger}");
     }
 
     void OnNextButtonClicked()
     {
+        if(_selectedOption != null)
+        {
+            UpdateResources(_selectedOption);
+            resourceDisplay.showChange(_selectedOption);
+            _selectedOption = null;
+
+
+        }
+        else
+        {
+            return; // 선택된 옵션이 없으면 return 
+        }
+
         currentQuestionIndex++;
         if (currentQuestionIndex < surveyQuestions.Count)
         {
@@ -95,8 +100,8 @@ public class SurveyManager : MonoBehaviour
 
     void EndSurvey()
     {
-        //종료시
-        Debug.Log("Final Scores - Health: " + health + ", Money: " + money + ", Environment: " + environment + ", Cleanliness: " + cleanliness + ", Hunger: " + hunger);
+       
+       
     }
 
     public void ShowPanel()

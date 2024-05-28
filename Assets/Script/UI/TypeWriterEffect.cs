@@ -14,11 +14,11 @@ public class TypeWriterEffect : MonoBehaviour
 
     private int _stringIdx = 0;
 
-    private Quiz quiz;
+    private SurveyManager surveyManager;
 
     private void Awake()
     {
-        quiz = GetComponent<Quiz>();
+        surveyManager = GetComponent<SurveyManager>();
     }
     private void Start()
     {
@@ -29,10 +29,10 @@ public class TypeWriterEffect : MonoBehaviour
     public void goToNextScript()
     {
         StopAllCoroutines();
-        if (_stringIdx == _context.Count && quiz != null)
+        if (_stringIdx == _context.Count && surveyManager != null)
         {
             _textBox.gameObject.SetActive(false);
-            quiz.ShowPanel();
+            surveyManager.ShowPanel();
             return;
         }
         

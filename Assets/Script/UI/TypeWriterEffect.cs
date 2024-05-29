@@ -9,6 +9,7 @@ public class TypeWriterEffect : MonoBehaviour
     [SerializeField, Range(0.01f, 0.5f)]  private float _typeDelay;
     [SerializeField] private float _nextContext = 2f;
     [SerializeField] private TextMeshProUGUI _textBox;
+    [SerializeField] private GameObject _fingerSnapAnim;
     private string _fullText;
     private string _currentText = "";
 
@@ -29,15 +30,28 @@ public class TypeWriterEffect : MonoBehaviour
     public void goToNextScript()
     {
         StopAllCoroutines();
-        if (_stringIdx == _context.Count && surveyManager != null)
+        if (_stringIdx == _context.Count)
+        {
+            _fingerSnapAnim.GetComponent<Animator>().gameObject.SetActive(true);
+            return;
+        }
+        if (_context[_stringIdx].Equals("-") && surveyManager != null)
         {
             _textBox.gameObject.SetActive(false);
             surveyManager.ShowPanel();
+            _stringIdx++;
             return;
         }
-        
+
+
+
+
+
+
         StartCoroutine(typewrite(_stringIdx));
         _stringIdx++;
+
+
     }
     
     IEnumerator typewrite(int stringIdx)

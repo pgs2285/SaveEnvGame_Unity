@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class SurveyManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SurveyManager : MonoBehaviour
     public GameObject[] ansPos;
 
     [SerializeField] GameObject _quizPanel;
+    [SerializeField] GameObject _txtPanel;
     private Animation _animation;
 
     private SurveyOption _selectedOption;
@@ -100,12 +102,21 @@ public class SurveyManager : MonoBehaviour
 
     void EndSurvey()
     {
-       
-       
+
+        ShowDownPanel();
     }
 
     public void ShowPanel()
     {
-        _animation.Play();
+        _animation.Play("PanelAppear");
+
     }
+    public void ShowDownPanel()
+    {
+        _animation.Play("FadeAwayQuizPanel");
+        Destroy(_quizPanel, 2f);
+        _txtPanel.SetActive(true);
+        _txtPanel.GetComponent<TextMeshProUGUI>().text = ".";
+    }
+
 }

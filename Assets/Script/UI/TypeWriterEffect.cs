@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class TypeWriterEffect : MonoBehaviour
 {
     [SerializeField] List<string> _context = new List<string>();
@@ -68,4 +70,6 @@ public class TypeWriterEffect : MonoBehaviour
 
         yield return new WaitForSeconds(_nextContext);
     }
+
+
 }

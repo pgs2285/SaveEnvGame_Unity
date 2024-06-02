@@ -33,4 +33,10 @@ public class ResourceManager : Singleton<ResourceManager>
     {
         Hunger = Mathf.Clamp(Hunger + amount, 0, 100);
     }
+
+//    public void Start()
+//    {
+//        AudioSource audio = GetComponent<AudioSource>();
+//        audio.Play();
+//    }
 }

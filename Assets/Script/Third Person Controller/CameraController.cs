@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] bool invertX;
     [SerializeField] bool invertY;
+    [SerializeField] LayerMask cameraCollision;
 
      
     float rotationX;
@@ -44,8 +45,15 @@ public class CameraController : MonoBehaviour
 
         Vector3 focusPosition = followTarget.position + new Vector3(framinOffset.x, framinOffset.y);
 
-        transform.position = focusPosition - targetRotation *  new Vector3(0, 0, distance);
+        transform.position = focusPosition - targetRotation * new Vector3(0, 0, distance);
         transform.rotation = targetRotation;
+        
+        Vector3 rayDir = transform.position - followTarget.position; // 플레이어의 방향으로
+        if (Physics.Raycast(followTarget.position, rayDir, out RaycastHit hit,
+            float.MaxValue, cameraCollision))
+        {
+            transform.position = hit.point - rayDir.normalized; // 맞은위치보다 살짝만 안쪽으로
+        }
     }
 
     public Quaternion PlanarRotation => Quaternion.Euler(0, rotationY, 0);

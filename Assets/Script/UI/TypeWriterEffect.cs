@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TypeWriterEffect : MonoBehaviour
 {
     [SerializeField] List<string> _context = new List<string>();
     [SerializeField, Range(0.01f, 0.5f)]  private float _typeDelay;
-    [SerializeField] private float _nextContext = 2f;
+    //[SerializeField] private float _nextContextTime = 2f;
     [SerializeField] private TextMeshProUGUI _textBox;
     [SerializeField] private GameObject _fingerSnapAnim;
     private string _fullText;
@@ -25,17 +25,39 @@ public class TypeWriterEffect : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(typewrite(_stringIdx));
+        try
+        {
+            StartCoroutine(typewrite(_stringIdx));
+        }catch (Exception e)
+        {
+            Debug.Log("Text Index초과");
+        }
         _stringIdx++;
+    }
+
+    private void Update()
+    {
+        if(Input.GetButtonDown("Space"))
+        {
+            goToNextScript();
+        }
     }
 
     public void goToNextScript()
     {
         StopAllCoroutines();
+        string sceneName = SceneManager.GetActiveScene().name;
         if (_stringIdx == _context.Count)
         {
-            _fingerSnapAnim.GetComponent<Animator>().gameObject.SetActive(true);
-            return;
+            switch (sceneName)
+            {
+                case "EnvSurvey": // scene name에 따라서 현재 Active상태 조절
+                    _fingerSnapAnim.GetComponent<Animator>().gameObject.SetActive(true);
+                    return;
+                case "1.InMyHouse":
+                    gameObject.SetActive(false);
+                    return;
+            }
         }
         if (_context[_stringIdx].Equals("-") && surveyManager != null)
         {
@@ -45,17 +67,11 @@ public class TypeWriterEffect : MonoBehaviour
             return;
         }
 
-
-
-
-
-
         StartCoroutine(typewrite(_stringIdx));
         _stringIdx++;
 
-
     }
-    
+
     IEnumerator typewrite(int stringIdx)
     {
         int index = 0;
@@ -68,7 +84,7 @@ public class TypeWriterEffect : MonoBehaviour
             yield return new WaitForSeconds(_typeDelay);
         }
 
-        yield return new WaitForSeconds(_nextContext);
+       // yield return new WaitForSeconds(_nextContextTime);
     }
 
 

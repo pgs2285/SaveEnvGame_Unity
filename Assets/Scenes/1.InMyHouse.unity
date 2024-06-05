@@ -8203,7 +8203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCamera: {fileID: 101898013}
-  Subject: {fileID: 165102421}
+  Subject: {fileID: 1970091047}
   Offset: {x: 330, y: 150, z: 0}
 --- !u!4 &1964862746 stripped
 Transform:

@@ -183,6 +183,7 @@ public class PlayerController : MonoBehaviour
     }
     public void SetControl(bool hasControl)
     {
+        Camera.main.GetComponent<CameraController>().enabled = hasControl;
         this.hasControl = hasControl;
         characterController.enabled = hasControl;
 

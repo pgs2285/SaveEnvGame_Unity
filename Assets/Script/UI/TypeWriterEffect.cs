@@ -30,6 +30,7 @@ public class TypeWriterEffect : MonoBehaviour
     }
     private void Start()
     {
+        if (_textBox == null) return;
         try
         {
             StartCoroutine(typewrite(_stringIdx));
@@ -42,7 +43,7 @@ public class TypeWriterEffect : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButtonDown("Space"))
+        if(Input.GetButtonDown("Space") && _textBox != null) // textBox가 null인 경우가 하나 있는데, timeline에서 조정할 경우
         {
             goToNextScript();
         }

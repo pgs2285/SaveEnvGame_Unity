@@ -6,7 +6,7 @@ public class TrackUI : MonoBehaviour
 {
 
     [SerializeField] private Camera PlayerCamera;
-    [SerializeField] private Transform Subject;
+    public Transform Subject;
     [SerializeField] private Vector3 Offset;
  
     void Update()

@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundCheckRadius = 0.2f;
     [SerializeField] Vector3 groundCheckOffset;
     [SerializeField] LayerMask groundLayer;
+
+    
     
     bool isGrounded;
     bool hasControl = true;
@@ -43,6 +45,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
+       // DetectInteract();
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
@@ -88,6 +93,23 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+    [Header("Interact")]
+    public float interactDistance = 2f;
+    public LayerMask interactLayer;
+    public GameObject interactUI;
+    public void DetectInteract()
+    {
+        if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit,interactDistance, interactLayer))
+        {
+            IInteractable i = hit.transform.GetComponent<IInteractable>();
+            i.LookAt(hit.transform);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                i.Interact();
+            }
+        }
+        
     }
 
     void GroundCheck()

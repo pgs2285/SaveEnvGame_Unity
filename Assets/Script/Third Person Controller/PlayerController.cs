@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
 
-       // DetectInteract();
+       DetectInteract();
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
@@ -100,14 +100,22 @@ public class PlayerController : MonoBehaviour
     public GameObject interactUI;
     public void DetectInteract()
     {
-        if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hit,interactDistance, interactLayer))
+        Debug.DrawRay(transform.position,transform.forward * interactDistance, Color.white);
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit,interactDistance, interactLayer))
         {
-            IInteractable i = hit.transform.GetComponent<IInteractable>();
+            //Debug.Log(hit.transform.name);
+            IInteractable i = hit.transform?.GetComponent<IInteractable>();
+            if (i == null) i = hit.transform?.GetComponentInParent<IInteractable>();// 만약 collider가 하위오브젝트에 있어서 상위를 찾아야할시
+
             i.LookAt(hit.transform);
             if (Input.GetKeyDown(KeyCode.F))
             {
                 i.Interact();
             }
+        }
+        else
+        {
+            interactUI.SetActive(false);
         }
         
     }
@@ -183,6 +191,16 @@ public class PlayerController : MonoBehaviour
     }
     public void SetControl(bool hasControl)
     {
+        Cursor.visible = !hasControl;
+        if(hasControl)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        //Cursor.lockState = CursorLockMode.Locked;
         Camera.main.GetComponent<CameraController>().enabled = hasControl;
         this.hasControl = hasControl;
         characterController.enabled = hasControl;

@@ -16,7 +16,7 @@ public class SurveyManager : MonoBehaviour
     [SerializeField] GameObject _txtPanel;
     private Animation _animation;
 
-    private SurveyOption _selectedOption;
+    private ChangeOption _selectedOption;
     private ResorurceDisplay resourceDisplay;
     private int currentQuestionIndex = 0;
 
@@ -64,7 +64,7 @@ public class SurveyManager : MonoBehaviour
         }
     }
 
-    void UpdateResources(SurveyOption option)
+    void UpdateResources(ChangeOption option)
     { // ΩÃ±€≈Ê¿Œ Resource Managerø° ¡¢±Ÿ
         ResourceManager.Instance.UpdateHealth(option.healthChange);
         ResourceManager.Instance.UpdateMoney(option.moneyChange);

@@ -25,11 +25,9 @@ public class CameraController : MonoBehaviour
     float invertXVal;
     float invertYVal;
 
-    private void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+   
+
+
     private void Update()
     {
 

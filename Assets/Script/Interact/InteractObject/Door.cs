@@ -37,10 +37,12 @@ public class Door : InteractObject, IInteractable
             {
                 case false:
                     _animator.SetTrigger("DoorOpen");
+                    isOpened = true;
                 return;
                 
                 case true:
                     _animator.SetTrigger("DoorClose");
+                    isOpened = false;
                 return;
             }
         }

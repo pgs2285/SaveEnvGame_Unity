@@ -22,7 +22,7 @@ public class ResorurceDisplay : MonoBehaviour
         
     }
 
-    public void showChange(SurveyOption surveyOption)
+    public void showChange(ChangeOption ChangeOption)
     {
         void SetImageState(int index, float changeValue)
         {
@@ -44,11 +44,11 @@ public class ResorurceDisplay : MonoBehaviour
             }
         }
 
-        SetImageState(0, surveyOption.healthChange);
-        SetImageState(1, surveyOption.moneyChange);
-        SetImageState(2, surveyOption.environmentChange);
-        SetImageState(3, surveyOption.cleanlinessChange);
-        SetImageState(4, surveyOption.hungerChange);
+        SetImageState(0, ChangeOption.healthChange);
+        SetImageState(1, ChangeOption.moneyChange);
+        SetImageState(2, ChangeOption.environmentChange);
+        SetImageState(3, ChangeOption.cleanlinessChange);
+        SetImageState(4, ChangeOption.hungerChange);
     }
 
 }

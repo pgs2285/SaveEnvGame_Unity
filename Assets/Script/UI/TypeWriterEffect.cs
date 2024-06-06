@@ -62,9 +62,13 @@ public class TypeWriterEffect : MonoBehaviour
                     return;
                 case "1.InMyHouse":
                     gameObject.SetActive(false);
+                    return;                
+                case "1.InMyHouse_ToonVersion":
+                    gameObject.SetActive(false);
                     return;
             }
         }
+        
         if (_context[_stringIdx].Equals("-") && surveyManager != null)
         {
             _textBox.gameObject.SetActive(false);

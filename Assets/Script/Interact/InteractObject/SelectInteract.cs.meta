@@ -3,7 +3,12 @@ guid: 2bc3cefa0a6feea48bcca5c0d4b8505e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _interactText: {instanceID: 0}
+  - _textBox: {instanceID: 0}
+  - SelectUI: {fileID: 7113226695393407980, guid: d9f868b39da020740845b2303d7676a2,
+      type: 3}
+  - SelectButton: {fileID: 149968, guid: edff3e8cd04fa324eb887c1d5afa0e80, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

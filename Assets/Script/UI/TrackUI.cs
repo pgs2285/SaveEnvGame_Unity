@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrackUI : MonoBehaviour
 {
 
-    [SerializeField] private Camera PlayerCamera;
+    [SerializeField] public Camera PlayerCamera;
     public Transform Subject;
     [SerializeField] private Vector3 Offset;
  

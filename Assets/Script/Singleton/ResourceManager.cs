@@ -65,4 +65,6 @@ public class ResourceManager : Singleton<ResourceManager>
         Hunger = Mathf.Clamp(Hunger + amount, 0, 100);
     }
 
+
+
 }

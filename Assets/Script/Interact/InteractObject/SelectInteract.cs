@@ -9,12 +9,17 @@ public class SelectInteract : InteractObject, IInteractable
     [SerializeField] private List<ChangeOption> selectOption = new List<ChangeOption>();
     [SerializeField] private GameObject SelectUI;
     [SerializeField] private GameObject SelectButton;
+
+    [Header("Todo")]
+    [SerializeField] private string todoString;
+    [SerializeField] private int todoID;
     PlayerController controller;
     Transform TrackTarget;
+
     void Awake()
     {
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-
+        QuestManager.Instance.AddTodoList(todoString, todoID);
     }
     public bool CanInteract()
     {
@@ -39,8 +44,9 @@ public class SelectInteract : InteractObject, IInteractable
             {
                 GameObject button = Instantiate(SelectButton);
                 button.GetComponentInChildren<TextMeshProUGUI>().SetText(option.optionText);
-                button.GetComponent<SelectInfo>().SetOption(option);
+                button.GetComponent<SelectInfo>().SetOption(option, todoID);
                 button.transform.parent = ui.transform;
+                  
                 
             }
 

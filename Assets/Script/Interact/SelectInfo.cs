@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SelectInfo : MonoBehaviour
 {
+    int questID;
     ChangeOption changeOption;
-
-    public void SetOption(ChangeOption changeOption)
+    public void SetOption(ChangeOption changeOption, int questID)
     {
         this.changeOption = changeOption;
+        this.questID = questID;
     }
     public void applyOption()
     {
@@ -19,9 +20,10 @@ public class SelectInfo : MonoBehaviour
         ResourceManager.Instance.UpdateHealth(changeOption.healthChange);
 
         GameObject.FindWithTag("Player").GetComponent<PlayerController>().SetControl(true);
-        Destroy(gameObject.transform.parent.gameObject);
         GameObject.Find("ResourceIndicator").GetComponent<ResourceUIManager>().showChange(changeOption);
-        
+        QuestManager.Instance.UpdateCheckList(true, questID);
+        Destroy(gameObject.transform.parent.gameObject);
+
     }
 
 }

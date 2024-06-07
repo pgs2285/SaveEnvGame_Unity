@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fence
   - Canvas
+  - ToDo
   layers:
   - Default
   - TransparentFX

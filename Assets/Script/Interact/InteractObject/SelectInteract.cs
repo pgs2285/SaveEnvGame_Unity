@@ -46,7 +46,7 @@ public class SelectInteract : InteractObject, IInteractable
                 button.GetComponentInChildren<TextMeshProUGUI>().SetText(option.optionText);
                 button.GetComponent<SelectInfo>().SetOption(option, todoID);
                 button.transform.parent = ui.transform;
-                  
+
                 
             }
 

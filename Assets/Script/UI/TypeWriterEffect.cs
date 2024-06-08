@@ -101,6 +101,7 @@ public class TypeWriterEffect : MonoBehaviour
     }
     IEnumerator dialogueEffect(int stringIdx)
     {
+         if(stringIdx == 0) gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 150);
         Image[] Images = GetComponentsInChildren<Image>();
         gameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(0,60);
 
@@ -130,7 +131,39 @@ public class TypeWriterEffect : MonoBehaviour
             dialogueBox.GetComponentInChildren<TextMeshProUGUI>().text = _currentText;
             yield return new WaitForSeconds(_typeDelay);
         }
+    }
 
+    IEnumerator dialogueEffect(int stringIdx, List<string> texts)
+    {
+        if (stringIdx == 0) gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 150);
+        Image[] Images = GetComponentsInChildren<Image>();
+        gameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(0, 60);
+
+        foreach (Image image in Images)
+        {
+            Color tempColor = image.color;
+            Color texttempColor = image.GetComponentInChildren<TextMeshProUGUI>().color;
+
+            tempColor.a *= 0.5f;
+            texttempColor.a *= 0.5f;
+
+            image.color = tempColor;
+            image.GetComponentInChildren<TextMeshProUGUI>().color = texttempColor;
+        }
+        GameObject dialogueBox = Instantiate(_dialoguePref);
+        dialogueBox.transform.SetParent(gameObject.transform); // 하위 오브젝트로 등록합니다.
+
+        int index = 0;
+        _fullText = texts[stringIdx];
+        
+        while (_fullText.Length != _currentText.Length) // 길이가 같아질떄 까지
+        {
+            index++; // index 증가후
+            _currentText = _fullText.Substring(0, index);
+            dialogueBox.GetComponentInChildren<TextMeshProUGUI>().text = _currentText;
+            yield return new WaitForSeconds(_typeDelay);
+            
+        }
 
     }
     public void DestroyChilds(Transform transform)
@@ -140,5 +173,27 @@ public class TypeWriterEffect : MonoBehaviour
         {
             Destroy(transform.GetChild(i).gameObject);
         }
+    }
+
+    public IEnumerator StartDialogue(float Delay, List<string> dialogueTexts)
+    {
+        int idx = 0;
+        if(dialogueTexts != null)
+        {
+            while(dialogueTexts.Count > idx)
+            {
+                StartCoroutine(dialogueEffect(idx, dialogueTexts));
+                idx++;
+                Debug.Log(dialogueTexts.Count + 1 + " : " + idx);
+                yield return new WaitForSeconds(Delay);
+            }
+        }
+        DestroyChilds(GameObject.FindWithTag("Dialogue").transform);
+        yield return null;
+
+    }
+    public void startDialogue(float Delay, List<string> dialogueTexts)
+    {
+        StartCoroutine(StartDialogue(Delay, dialogueTexts));
     }
 }

@@ -76,7 +76,10 @@ public class ChangeOption  // 각 선택지가 가질 수치 변동값들
     public int environmentChange;
     public int cleanlinessChange;
     public int hungerChange;
+    public List<string> SelectDialogue;
 }
+
+
 
 [System.Serializable]
 public class SurveyQuestion // 질문과 선택지

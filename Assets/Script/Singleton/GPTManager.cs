@@ -9,7 +9,7 @@ public class GPTManager : Singleton<GPTManager>
     private List<ChatMessage> messages = new List<ChatMessage>();
     
 
-    public async void AskChatGPT(string newText)
+    public async IAsyncEnumerable<CreateChatCompletionResponse> AskChatGPT(string newText)
     {
         ChatMessage newMessage = new ChatMessage();
         newMessage.Content = newText;
@@ -21,14 +21,15 @@ public class GPTManager : Singleton<GPTManager>
         request.Messages = messages;
         request.Model = "gpt-3.5-turbo";
 
-        var response = await openAI.CreateChatCompletion(request); // 진행하기 이전에 이 함수가 끝나는 것이 보장되어야 하므로, await.
+        yield return await openAI.CreateChatCompletion(request); // 진행하기 이전에 이 함수가 끝나는 것이 보장되어야 하므로, await.
 
-        if(response.Choices != null && response.Choices.Count > 0)
-        {
-            var chatResponse = response.Choices[0].Message;
-            messages.Add(chatResponse);
-            Debug.Log(chatResponse.Content);
-        }
+        //if(response.Choices != null && response.Choices.Count > 0)
+        //{
+        //    var chatResponse = response.Choices[0].Message;
+        //    messages.Add(chatResponse);
+        //    Debug.Log(chatResponse.Content);
+        //}
          
+        
     }
 }

@@ -16,6 +16,23 @@ public class GPTManager : Singleton<GPTManager>
         await AskChatGPT("샐러드");
 
     }
+    public string GetStatusChanges(string responseText)
+    {
+        // 피드백에서 각 수치의 변화 정보를 추출합니다.
+        string[] lines = responseText.Split('\n');
+        string statusChanges = "";
+
+        foreach (string line in lines)
+        {
+            // "체력:", "배고픔:", "환경수치:", "돈:", "청결도:" 키워드로 시작하는 줄만 추출
+            if (line.Contains("체력:") || line.Contains("배고픔:") || line.Contains("환경수치:") || line.Contains("돈:") || line.Contains("청결도:"))
+            {
+                statusChanges += line.Trim() + "\n";
+            }
+        }
+
+        return statusChanges.Trim(); // 마지막 개행 제거
+    }
 
     public string GetFeedback(string chatResponse)
     {

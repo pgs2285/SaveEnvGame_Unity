@@ -32,10 +32,12 @@ public class commonButtonScript : MonoBehaviour
             Debug.Log(changeOption);
 
             // 응답 내용을 changeOption에 추가합니다.
-            changeOption.SelectDialogue.Add(chatResponse.Content);
+            Debug.Log(GPTManager.Instance.GetStatusChanges(chatResponse.Content));
+            changeOption.SelectDialogue.Add(GPTManager.Instance.GetFeedback(chatResponse.Content));
+            changeOption.SelectDialogue.Add(GPTManager.Instance.GetStatusChanges(chatResponse.Content));
 
             // TypeWriterEffect를 통해 대화를 시작합니다.
-            GameObject.FindWithTag("Dialogue").GetComponent<TypeWriterEffect>().startDialogue(3.0f, changeOption.SelectDialogue);
+            GameObject.FindWithTag("Dialogue").GetComponent<TypeWriterEffect>().startDialogue(4.0f, changeOption.SelectDialogue);
         }
 
         // PlayerController 및 ResourceUIManager를 업데이트합니다.

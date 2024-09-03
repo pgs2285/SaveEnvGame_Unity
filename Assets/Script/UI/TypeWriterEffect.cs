@@ -124,6 +124,7 @@ public class TypeWriterEffect : MonoBehaviour
 
         int index = 0;
         _fullText = _context[stringIdx];
+        //Debug.Log(_fullText);
         while (_fullText.Length != _currentText.Length) // 길이가 같아질떄 까지
         {
             index++; // index 증가후
@@ -184,10 +185,13 @@ public class TypeWriterEffect : MonoBehaviour
             {
                 StartCoroutine(dialogueEffect(idx, dialogueTexts));
                 idx++;
-                Debug.Log(dialogueTexts.Count + 1 + " : " + idx);
+                //Debug.Log(dialogueTexts.Count + 1 + " : " + idx);
+                 
                 yield return new WaitForSeconds(Delay);
             }
         }
+        
+        yield return new WaitForSeconds(4.0f);
         DestroyChilds(GameObject.FindWithTag("Dialogue").transform);
         yield return null;
 

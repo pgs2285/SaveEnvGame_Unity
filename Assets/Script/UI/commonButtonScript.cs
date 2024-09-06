@@ -42,7 +42,7 @@ public class commonButtonScript : MonoBehaviour
 
         // PlayerController 및 ResourceUIManager를 업데이트합니다.
         GameObject.FindWithTag("Player").GetComponent<PlayerController>().SetControl(true);
-        GameObject.Find("ResourceIndicator").GetComponent<ResourceUIManager>().showChange(changeOption);
+      //  GameObject.Find("ResourceIndicator").GetComponent<ResourceUIManager>().showChange(changeOption);
         QuestManager.Instance.UpdateCheckList(true, questID);
 
         // 버튼이 속한 부모 오브젝트를 파괴합니다.

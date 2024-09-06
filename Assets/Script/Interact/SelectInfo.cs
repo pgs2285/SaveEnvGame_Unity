@@ -20,7 +20,7 @@ public class SelectInfo : MonoBehaviour
         ResourceManager.Instance.UpdateHealth(changeOption.healthChange);
 
         GameObject.FindWithTag("Player").GetComponent<PlayerController>().SetControl(true);
-        GameObject.Find("ResourceIndicator").GetComponent<ResourceUIManager>().showChange(changeOption);
+       // GameObject.Find("ResourceIndicator").GetComponent<ResourceUIManager>().showChange(changeOption);
         QuestManager.Instance.UpdateCheckList(true, questID);
         GameObject.FindWithTag("Dialogue").GetComponent<TypeWriterEffect>().startDialogue(3.0f, changeOption.SelectDialogue);
         

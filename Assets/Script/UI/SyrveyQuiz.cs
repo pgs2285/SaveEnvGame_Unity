@@ -11,64 +11,64 @@ public class SurveyInitializer : MonoBehaviour
         {
             new SurveyQuestion
             {
-                questionText = "ÁÖ¸»¿¡ ¾î¶² È°µ¿À» ¼±È£ÇÏ½Ã³ª¿ä?",
+                questionText = "ì£¼ë§ì— ì–´ë–¤ í™œë™ì„ ì„ í˜¸í•˜ì‹œë‚˜ìš”?",
                 options = new List<ChangeOption>
                 {
-                    new ChangeOption { optionText = "½£ ¼Ó Æ®·¹Å·", healthChange = 20, moneyChange = -10, environmentChange = 20, cleanlinessChange = -10, hungerChange = -10 },
-                    new ChangeOption { optionText = "¼îÇÎ¸ô¿¡¼­ ¼îÇÎ", healthChange = -10, moneyChange = -30, environmentChange = -20, cleanlinessChange = 10, hungerChange = -10 },
-                    new ChangeOption { optionText = "Áı¿¡¼­ ¿µÈ­ º¸±â", healthChange = 10, moneyChange = 10, environmentChange = 10, cleanlinessChange = 10, hungerChange = -10 },
-                    new ChangeOption { optionText = "Ä£±¸µé°ú ¿Ü½Ä", healthChange = -10, moneyChange = -20, environmentChange = -10, cleanlinessChange = -10, hungerChange = 20 }
+                    new ChangeOption { optionText = "ìˆ² ì† íŠ¸ë ˆí‚¹", healthChange = 20, moneyChange = -10, environmentChange = 20, cleanlinessChange = -10, hungerChange = -10 },
+                    new ChangeOption { optionText = "ì‡¼í•‘ëª°ì—ì„œ ì‡¼í•‘", healthChange = -10, moneyChange = -30, environmentChange = -20, cleanlinessChange = 10, hungerChange = -10 },
+                    new ChangeOption { optionText = "ì§‘ì—ì„œ ì˜í™” ë³´ê¸°", healthChange = 10, moneyChange = 10, environmentChange = 10, cleanlinessChange = 10, hungerChange = -10 },
+                    new ChangeOption { optionText = "ì¹œêµ¬ë“¤ê³¼ ì™¸ì‹", healthChange = -10, moneyChange = -20, environmentChange = -10, cleanlinessChange = -10, hungerChange = 20 }
                 }
             },
             new SurveyQuestion
             {
-                questionText = "Ãâ±Ù ¹æ¹ıÀ» ¼±ÅÃÇØ ÁÖ¼¼¿ä.",
+                questionText = "ì¶œê·¼ ë°©ë²•ì„ ì„ íƒí•´ ì£¼ì„¸ìš”.",
                 options = new List<ChangeOption>
                 {
-                    new ChangeOption { optionText = "ÀÚÀü°Å Å¸±â", healthChange = 20, moneyChange = 10, environmentChange = 20, cleanlinessChange = -20, hungerChange = -10 },
-                    new ChangeOption { optionText = "´ëÁß±³Åë ÀÌ¿ëÇÏ±â", healthChange = 10, moneyChange = 0, environmentChange = 10, cleanlinessChange = 0, hungerChange = -10 },
-                    new ChangeOption { optionText = "ÀÚ°¡¿ë ¿îÀüÇÏ±â", healthChange = -10, moneyChange = -30, environmentChange = -30, cleanlinessChange = 10, hungerChange = -10 },
-                    new ChangeOption { optionText = "µµº¸·Î °È±â", healthChange = 20, moneyChange = 20, environmentChange = 20, cleanlinessChange = -10, hungerChange = -20 }
+                    new ChangeOption { optionText = "ìì „ê±° íƒ€ê¸°", healthChange = 20, moneyChange = 10, environmentChange = 20, cleanlinessChange = -20, hungerChange = -10 },
+                    new ChangeOption { optionText = "ëŒ€ì¤‘êµí†µ ì´ìš©í•˜ê¸°", healthChange = 10, moneyChange = 0, environmentChange = 10, cleanlinessChange = 0, hungerChange = -10 },
+                    new ChangeOption { optionText = "ìê°€ìš© ìš´ì „í•˜ê¸°", healthChange = -10, moneyChange = -30, environmentChange = -30, cleanlinessChange = 10, hungerChange = -10 },
+                    new ChangeOption { optionText = "ë„ë³´ë¡œ ê±·ê¸°", healthChange = 20, moneyChange = 20, environmentChange = 20, cleanlinessChange = -10, hungerChange = -20 }
                 }
             },
             new SurveyQuestion
             {
-                questionText = "Á¡½É ½Ä»ç·Î ¹«¾ùÀ» µå½Ã°Ú½À´Ï±î?",
+                questionText = "ì ì‹¬ ì‹ì‚¬ë¡œ ë¬´ì—‡ì„ ë“œì‹œê² ìŠµë‹ˆê¹Œ?",
                 options = new List<ChangeOption>
                 {
-                    new ChangeOption { optionText = "ºñ°Ç »ø·¯µå", healthChange = 10, moneyChange = -10, environmentChange = 20, cleanlinessChange = 10, hungerChange = 10 },
-                    new ChangeOption { optionText = "ÇÜ¹ö°Å ¼¼Æ®", healthChange = 10, moneyChange = -20, environmentChange = -20, cleanlinessChange = -10, hungerChange = 20 },
-                    new ChangeOption { optionText = "Áı¹ä µµ½Ã¶ô", healthChange = 10, moneyChange = 10, environmentChange = 10, cleanlinessChange = 20, hungerChange = 20 },
-                    new ChangeOption { optionText = "Áï¼® ½ÄÇ°", healthChange = -10, moneyChange = 10, environmentChange = -10, cleanlinessChange = -20, hungerChange = 10 }
+                    new ChangeOption { optionText = "ë¹„ê±´ ìƒëŸ¬ë“œ", healthChange = 10, moneyChange = -10, environmentChange = 20, cleanlinessChange = 10, hungerChange = 10 },
+                    new ChangeOption { optionText = "í–„ë²„ê±° ì„¸íŠ¸", healthChange = 10, moneyChange = -20, environmentChange = -20, cleanlinessChange = -10, hungerChange = 20 },
+                    new ChangeOption { optionText = "ì§‘ë°¥ ë„ì‹œë½", healthChange = 10, moneyChange = 10, environmentChange = 10, cleanlinessChange = 20, hungerChange = 20 },
+                    new ChangeOption { optionText = "ì¦‰ì„ ì‹í’ˆ", healthChange = -10, moneyChange = 10, environmentChange = -10, cleanlinessChange = -20, hungerChange = 10 }
                 }
             },
             new SurveyQuestion
             {
-                questionText = "ÈŞ°¡¸¦ º¸³»´Â ¹æ½ÄÀº?",
+                questionText = "íœ´ê°€ë¥¼ ë³´ë‚´ëŠ” ë°©ì‹ì€?",
                 options = new List<ChangeOption>
                 {
-                    new ChangeOption { optionText = "ÇØ¿Ü¿©Çà", healthChange = 10, moneyChange = -30, environmentChange = -20, cleanlinessChange = 20, hungerChange = -10 },
-                    new ChangeOption { optionText = "Ä·ÇÎ", healthChange = 20, moneyChange = -20, environmentChange = 20, cleanlinessChange = -10, hungerChange = -10 },
-                    new ChangeOption { optionText = "È£ÅÚ¿¡¼­ ½¬±â", healthChange = 20, moneyChange = -30, environmentChange = -10, cleanlinessChange = 20, hungerChange = -10 },
-                    new ChangeOption { optionText = "Áı¿¡¼­ ÈŞ½Ä", healthChange = 10, moneyChange = 20, environmentChange = 10, cleanlinessChange = 10, hungerChange = 0 }
+                    new ChangeOption { optionText = "í•´ì™¸ì—¬í–‰", healthChange = 10, moneyChange = -30, environmentChange = -20, cleanlinessChange = 20, hungerChange = -10 },
+                    new ChangeOption { optionText = "ìº í•‘", healthChange = 20, moneyChange = -20, environmentChange = 20, cleanlinessChange = -10, hungerChange = -10 },
+                    new ChangeOption { optionText = "í˜¸í…”ì—ì„œ ì‰¬ê¸°", healthChange = 20, moneyChange = -30, environmentChange = -10, cleanlinessChange = 20, hungerChange = -10 },
+                    new ChangeOption { optionText = "ì§‘ì—ì„œ íœ´ì‹", healthChange = 10, moneyChange = 20, environmentChange = 10, cleanlinessChange = 10, hungerChange = 0 }
                 }
             },
             new SurveyQuestion
             {
-                questionText = "´ÙÀ½ Áß ¾î¶² Á¦Ç°À» ±¸¸ÅÇÏ½Ã°Ú½À´Ï±î?",
+                questionText = "ë‹¤ìŒ ì¤‘ ì–´ë–¤ ì œí’ˆì„ êµ¬ë§¤í•˜ì‹œê² ìŠµë‹ˆê¹Œ?",
                 options = new List<ChangeOption>
                 {
-                    new ChangeOption { optionText = "ÀçÈ°¿ë ¼ÒÀç ÀÇ·ù", healthChange = 0, moneyChange = -20, environmentChange = 30, cleanlinessChange = 10, hungerChange = 0 },
-                    new ChangeOption { optionText = "ÃÖ½Å ÀüÀÚÁ¦Ç°", healthChange = 0, moneyChange = -30, environmentChange = -20, cleanlinessChange = 20, hungerChange = 0 },
-                    new ChangeOption { optionText = "Ä£È¯°æ ½Ä·áÇ°", healthChange = 10, moneyChange = -20, environmentChange = 20, cleanlinessChange = 0, hungerChange = 20 },
-                    new ChangeOption { optionText = "ÀÏ¹İ °¡ÀüÁ¦Ç°", healthChange = 0, moneyChange = -10, environmentChange = -10, cleanlinessChange = 10, hungerChange = 0 }
+                    new ChangeOption { optionText = "ì¬í™œìš© ì†Œì¬ ì˜ë¥˜", healthChange = 0, moneyChange = -20, environmentChange = 30, cleanlinessChange = 10, hungerChange = 0 },
+                    new ChangeOption { optionText = "ìµœì‹  ì „ìì œí’ˆ", healthChange = 0, moneyChange = -30, environmentChange = -20, cleanlinessChange = 20, hungerChange = 0 },
+                    new ChangeOption { optionText = "ì¹œí™˜ê²½ ì‹ë£Œí’ˆ", healthChange = 10, moneyChange = -20, environmentChange = 20, cleanlinessChange = 0, hungerChange = 20 },
+                    new ChangeOption { optionText = "ì¼ë°˜ ê°€ì „ì œí’ˆ", healthChange = 0, moneyChange = -10, environmentChange = -10, cleanlinessChange = 10, hungerChange = 0 }
                 }
             }
         };
     }
 }
 [System.Serializable]
-public class ChangeOption  // °¢ ¼±ÅÃÁö°¡ °¡Áú ¼öÄ¡ º¯µ¿°ªµé
+public class ChangeOption  // ê° ì„ íƒì§€ê°€ ê°€ì§ˆ ìˆ˜ì¹˜ ë³€ë™ê°’ë“¤
 {
     public string optionText;
     public int healthChange;
@@ -82,7 +82,7 @@ public class ChangeOption  // °¢ ¼±ÅÃÁö°¡ °¡Áú ¼öÄ¡ º¯µ¿°ªµé
 
 
 [System.Serializable]
-public class SurveyQuestion // Áú¹®°ú ¼±ÅÃÁö
+public class SurveyQuestion // ì§ˆë¬¸ê³¼ ì„ íƒì§€
 {
     public string questionText;
     public List<ChangeOption> options;

@@ -41,7 +41,7 @@ public class GPTInteract : InteractObject, IInteractable
             ui.transform.parent = GameObject.FindWithTag("Canvas").transform;
             ui.GetComponent<TrackUI>().Subject = TrackTarget;
             ui.GetComponent<TrackUI>().PlayerCamera = Camera.main;
-            
+            QuestManager.Instance.UpdateCheckList(true, todoID);
 
         }
     }

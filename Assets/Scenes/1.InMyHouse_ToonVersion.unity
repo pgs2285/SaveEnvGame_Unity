@@ -8459,12 +8459,19 @@ MonoBehaviour:
     environmentChange: -10
     cleanlinessChange: 15
     hungerChange: 0
+    SelectDialogue:
+    - "\uAC1C\uC6B4\uD558\uB2E4... \uC0F4\uD478\uC880 \uB35C \uC4F8\uAC78 \uADF8\uB7AC\uB098..?"
+    - "\uCCB4\uB825 + 5  \uD658\uACBD\uC218\uCE58 - 10  \uCCAD\uACB0\uB3C4 + 15"
   - optionText: "\uC138\uC218\uB9CC \uD558\uAE30"
     healthChange: 3
     moneyChange: 0
     environmentChange: 5
     cleanlinessChange: -3
     hungerChange: 0
+    SelectDialogue:
+    - "\uC544\uCE68\uBD80\uD130 \uBB34\uC2A8 \uC0E4\uC6CC\uC57C... \uC138\uC218\uB9CC
+      \uD558\uC790"
+    - "\uCCB4\uB825 + 3  \uD658\uACBD\uC218\uCE58 + 5  \uCCAD\uACB0\uB3C4 -3 "
   SelectUI: {fileID: 7113226695393407980, guid: d9f868b39da020740845b2303d7676a2,
     type: 3}
   SelectButton: {fileID: 149968, guid: edff3e8cd04fa324eb887c1d5afa0e80, type: 3}

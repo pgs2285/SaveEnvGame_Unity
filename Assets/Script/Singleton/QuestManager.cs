@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class QuestManager : Singleton<QuestManager>
 {
 
+    
     public Dictionary<int, bool> checkList = new Dictionary<int, bool>();
     [SerializeField] GameObject checkBoxPrefabs;
 
@@ -14,8 +15,9 @@ public class QuestManager : Singleton<QuestManager>
     public void UpdateCheckList(bool isClear, int id)
     {
         checkList[id] = isClear;
-
     }
+
+ 
     public void AddTodoList(string text, int id)
     {
         GameObject todoList = Instantiate(checkBoxPrefabs);
@@ -23,7 +25,7 @@ public class QuestManager : Singleton<QuestManager>
         todoList.GetComponentInChildren<TextMeshProUGUI>().text = text;
         todoList.name = "check_" + id.ToString();
         todoList.GetComponent<checklistToggle>().questID = id;
-        if (todoList != null) checkList.Add(id, false); // todoList에 id와 함꼐 저장, 추후 체크할떄 사용
+         checkList.Add(id, false); // todoList에 id와 함꼐 저장, 추후 체크할떄 사용
     }
 
 

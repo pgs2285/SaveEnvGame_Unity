@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +10,13 @@ public class TodoList : MonoBehaviour
 {
     bool isScrollOpened = false;
     Animator animator;
+    public int stageQuestCount = 0; 
     void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
+    public GameObject NextButton;
     private void Update()
     {
         List<int> keys = QuestManager.Instance.checkList.Keys.ToList<int>();
@@ -31,6 +34,14 @@ public class TodoList : MonoBehaviour
                     }
                 }
             }
+        }
+
+
+        if (keys.Count > stageQuestCount)
+        {
+            NextButton.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 

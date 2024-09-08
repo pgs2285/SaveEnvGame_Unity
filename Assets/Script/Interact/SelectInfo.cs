@@ -27,5 +27,5 @@ public class SelectInfo : MonoBehaviour
         Destroy(gameObject.transform.parent.gameObject);
 
     }
-
+ 
 }
